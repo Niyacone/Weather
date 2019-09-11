@@ -5,9 +5,94 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282C34;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.weather-info {
+  width: 220px;
+  height: 220px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.weather-details {
+  padding-top: 100px;
+  width: 20%;
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.search-box {
+  float: right;
+  padding: 20px 120px 20px;
+}
+
+.search-box button {
+  color: white !important;
+  background: #EC6E4C;
+  padding: 10px 14px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+
+.search-box button:hover {
+  background: #434343;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.search-box input {
+  margin: 20px;
+  padding: 8px;
+  border-radius: 5px;
+  border-color: #EC6E4C;
+  background-color: #282C34;
+  color: white;
+}
+
+.search-box input::placeholder {
+  color: white;
+}
+
+.search-box input:focus {
+  outline-width: 0;
+}
+
+.search-box button:focus {
+  outline-width: 0;
+}
+
+.app-name {
+  float: left;
+  margin: 40px 120px 20px;
+}
+
+.favorites {
+  margin: 60px 30px;
+  float: left;
+  list-style-type: none;
+  color: #EC6E4C;
+}
+
+.favorites-header {
+  color: #EC6E4C;
+  text-align: left;
+  margin-left: 68px;
+  margin-top: 50px;
 }
