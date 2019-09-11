@@ -27,6 +27,8 @@ export default class WeatherData extends Component {
                 favorites: JSON.parse(localStorage.getItem('Favorites'))
             });
         }
+        console.log(this.state.favorites);
+        console.log(localStorage);
     }
 
     getWeather = (position) => {
@@ -42,14 +44,30 @@ export default class WeatherData extends Component {
         e.preventDefault();
 
         // SPARA TILL FAVORITER OM DEN INTE REDAN EXISTERAR.
-        if(!this.state.favorites.includes(e.target.innerHTML)){
-            let newFavorites = [...this.state.favorites, e.target.innerHTML]
+        if(!this.state.favorites.includes(e.target.id)){
+            let newFavorites = [...this.state.favorites, e.target.id]
+            console.log(newFavorites);
+            
             localStorage.setItem('Favorites', JSON.stringify(newFavorites));
+            console.log(localStorage);
+
             await this.setState({
                 favorites: newFavorites
             })
         } else {
-            alert(`${e.target.innerHTML} is already marked as favorite`);
+            alert(`${e.target.id} is already marked as favorite`);
+        }
+    }
+    removeFavorite = async (e) => {
+        e.preventDefault();
+        console.log(e.target.id);
+        // // TA BORT FRÅN FAVORITER.
+        if(this.state.favorites.includes(e.target.id)){
+            let newFavorites = this.state.favorites.filter(f => f !== e.target.id);
+            localStorage.setItem('Favorites', JSON.stringify(newFavorites));
+            await this.setState({
+                favorites: newFavorites
+            })
         }
     }
 
@@ -81,7 +99,7 @@ export default class WeatherData extends Component {
     render() {
         const weatherPresentation = this.state.weatherData.length === undefined ? (
             <div>
-                <WeatherInfo weatherData={this.state.weatherData} setFavorite={this.setFavorite}/>
+                <WeatherInfo favorites={this.state.favorites} removeFavorite={this.removeFavorite} weatherData={this.state.weatherData} setFavorite={this.setFavorite}/>
                 <WeatherDetail weatherData={this.state.weatherData} />
             </div>
         ) : null

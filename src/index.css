@@ -15,11 +15,22 @@ code {
 }
 
 .weather-info {
-  width: 220px;
+  width: 300px;
   height: 220px;
   margin: 100px auto;
   text-align: center;
 }
+
+.weather-info h2:hover{
+  cursor: pointer;
+  color: #EC6E4C;
+}
+
+.favorites li:hover{
+  cursor: pointer;
+  color: rgb(76, 236, 228);
+}
+
 
 .weather-details {
   padding-top: 100px;
@@ -37,6 +48,9 @@ code {
 .search-box {
   float: right;
   padding: 20px 120px 20px;
+}
+.favorites-2{
+  margin: 20px;
 }
 
 .search-box button {
